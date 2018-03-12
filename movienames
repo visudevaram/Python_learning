@@ -1,6 +1,18 @@
 def  getMovieTitles(substr):
-    jsonurl = urlopen("https://jsonmock.hackerrank.com/api/movies/search/?Title=" + _substr)
-    text = json.loads(jsonurl.read())
+    jsonurl = "https://jsonmock.hackerrank.com/api/movies/search/?Title=" + substr
+    res = urlopen(jsonurl)
+    res_body = res.read()
+    text = json.loads(res_body.decode("utf-8"))
     n = text['total_pages']
+    pp = text['per_page']
+    final_list = list();
     for i in range(1,n+1):
-    print(i)
+        jsonurl = "https://jsonmock.hackerrank.com/api/movies/search/?Title=" + substr + "&page=" + str(i)
+        res = urlopen(jsonurl)
+        res_body = res.read()
+        text = json.loads(res_body.decode("utf-8"))
+        tot_titles = len(text['data'])
+        for j in range(0,tot_titles):
+            final_list.append(text['data'][j]['Title'])
+    final_list.sort()
+    return final_list
