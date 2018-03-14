@@ -1,21 +1,24 @@
+# Complete the function below.
+
 def socialGraphs(counts):
     x = [];
     z = [];
     j = 0;
-    if sum(counts) == len(counts):
-        for s in range(0,len(counts)):
+    l = len(counts)
+    if sum(counts) == l:
+        for s in range(0,l):
             print(s)
     else:
-        for i in range(0,len(counts)):
-            if(i not in z):
-                y = [];
-                j = i
-                cnt = counts[i]
-                if cnt == 1:
-                    x.append(i)
-                else:
+        for i in range(0,l):
+            cnt = counts[i]
+            if cnt == 1:
+                x.append(i)
+            else:
+                if(i not in z):
+                    y = [];
+                    j = i
                     y.append(j)
-                    z.append(j)
+                    #z.append(j)
                     cnt = cnt - 1
                     while cnt > 0:
                         j = j + 1
@@ -29,3 +32,4 @@ def socialGraphs(counts):
                 print(str(s))
             else:
                 print(*s)
+
