@@ -1,0 +1,31 @@
+def socialGraphs(counts):
+    x = [];
+    z = [];
+    j = 0;
+    if sum(counts) == len(counts):
+        for s in range(0,len(counts)):
+            print(s)
+    else:
+        for i in range(0,len(counts)):
+            if(i not in z):
+                y = [];
+                j = i
+                cnt = counts[i]
+                if cnt == 1:
+                    x.append(i)
+                else:
+                    y.append(j)
+                    z.append(j)
+                    cnt = cnt - 1
+                    while cnt > 0:
+                        j = j + 1
+                        if ((counts[j] != 1) and (counts[j] == counts[i])):
+                            y.append(j)
+                            z.append(j)
+                            cnt = cnt - 1
+                    x.append(y)
+        for s in x:
+            if isinstance(s, int):
+                print(str(s))
+            else:
+                print(*s)
