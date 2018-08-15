@@ -1,7 +1,7 @@
-'''Best solution for Social network problem - efficient
-   1. It converts input to dictionaries with groups of 0s, 1s, 2s etc. where key is number and value is groups 
-   2. With in each group, it splits from beginning to end e.g. 1, [1,2,3], 2
-   3. Finally sorts output based on 1st element'''
+#Best solution for Social network problem - efficient
+#   1. It converts input to dictionaries with groups of 0s, 1s, 2s etc. where key is number and value is groups 
+#   2. With in each group, it splits from beginning to end e.g. 1, [1,2,3], 2
+#   3. Finally sorts output based on 1st element
 counts = [5,2,1,1,2,1]
 x = counts[1:]
 print(type(counts))
